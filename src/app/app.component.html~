@@ -4,8 +4,6 @@
     Welcome to {{ title }}!
   </h1>
 
-  <weasley-customer></weasley-customer>
 
-  <div>Rendered @ {{now | date:'shortTime'}} </div>
 
 </div>
