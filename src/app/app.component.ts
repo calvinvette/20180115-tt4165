@@ -11,6 +11,7 @@ export class AppComponent {
   private _title = 'Weasley\'s Wizarding Wheezes';
   private _now: Date = new Date();
   private _customerList: Customer[] = CustomerComponent.customerList;
+  private _navbarCollapsed: boolean = true;
 
   get title(): string {
     return this._title;
@@ -34,5 +35,13 @@ export class AppComponent {
 
   set customerList(value: Customer[]) {
     this._customerList = value;
+  }
+
+  get navbarCollapsed(): boolean {
+    return this._navbarCollapsed;
+  }
+
+  set navbarCollapsed(value: boolean) {
+    this._navbarCollapsed = value;
   }
 }
