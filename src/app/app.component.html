@@ -4,9 +4,15 @@
     Welcome to {{ title }}!
   </h1>
 
+  <!--
   <weasley-customer [customerId]="1234"></weasley-customer>
   <weasley-customer [customerId]="1235"></weasley-customer>
   <weasley-customer [customerId]="1236"></weasley-customer>
+  -->
+
+  <div *ngFor="let cust of customerList">
+    <weasley-customer [customerId]="cust.customerId"></weasley-customer>
+  </div>
 
   <div>Rendered @ {{now | date:'shortTime'}} </div>
 
