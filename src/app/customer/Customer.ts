@@ -63,4 +63,11 @@ export class Customer implements Person {
   set birthDate(value: Date) {
     this._birthDate = value;
   }
+
+  get age() {
+    const now: Date = new Date();
+    return (now.getTime() - this.birthDate.getTime()) / (1000 * 3600 * 24 * 365.25);
+  }
+
+
 }

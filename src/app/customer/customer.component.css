@@ -1,5 +1,18 @@
-div {
-  background-color: lightseagreen;
-  color: white;
+/*div {*/
+  /*background-color: lightseagreen;*/
+  /*color: white;*/
+  /*padding: 10px;*/
+/*}*/
+
+.customerView {
+  margin:20px;
   padding: 10px;
+}
+
+.underAge {
+  background-color: pink;
+}
+.overAge {
+  background-color: green;
+  color: white;
 }
