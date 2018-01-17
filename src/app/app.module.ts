@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 import {CustomerComponent} from './customer/customer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [],
