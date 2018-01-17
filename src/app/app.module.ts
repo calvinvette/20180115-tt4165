@@ -16,6 +16,9 @@ import { ShippingViewComponent } from './shipping-view/shipping-view.component';
 import { LandingComponent } from './landing/landing.component';
 import {RouterModule} from '@angular/router';
 import {AppRouting} from './app.routing';
+import {CustomerLocalStorageService} from './customer-local-storage/customer-local-storage.service';
+import {CustomerRESTStorageService} from './customer-rest-storage/customer-rest-storage.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -37,10 +40,14 @@ import {AppRouting} from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     AppRouting
   ],
-  providers: [],
+  providers: [
+    CustomerLocalStorageService,
+    CustomerRESTStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

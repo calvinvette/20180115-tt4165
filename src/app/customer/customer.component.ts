@@ -26,8 +26,8 @@ export class CustomerComponent implements OnInit, AfterViewInit {
   private _state: string = "view";
   private customerForm: FormGroup;
 
-  private _customerId: number = -1;
-  private _customer: Customer = null;
+  private _customerId: number = 1234;
+  private _customer: Customer = new Customer();
 
   static ngbToDate(dateIn: any) {
     if ((dateIn instanceof Date) || ((typeof dateIn === "object") && (dateIn.getUTCDate))) {
