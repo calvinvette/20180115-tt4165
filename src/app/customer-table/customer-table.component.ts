@@ -21,4 +21,8 @@ export class CustomerTableComponent implements OnInit {
     });
   }
 
+  customerAdded(customer: Customer) {
+    this.customerList.push(customer);
+  }
+
 }

@@ -8,7 +8,7 @@ describe('ng-cli-demo App', () => {
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    page.navigateTo(); // Open route to http://localhost:4200/#/
+    expect(page.getParagraphText()).toEqual('Welcome to Weasley\'s Wizarding Wheezes!');
   });
 });

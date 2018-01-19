@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, Inject, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Customer} from './Customer';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {CustomerRegisteredEvent} from './CustomerRegisteredEvent';
 
 declare var $: any;
 
@@ -26,7 +27,7 @@ export class CustomerComponent implements OnInit, AfterViewInit {
   private _state: string = "view";
   private customerForm: FormGroup;
 
-  private _customerId: number = 1234;
+  private _customerId: number = -1;
   private _customer: Customer = new Customer();
 
   static ngbToDate(dateIn: any) {
@@ -59,7 +60,9 @@ export class CustomerComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // console.log("On Init");
-    this.customer = CustomerComponent.customers[this.customerId];
+    if (this.customerId > 0) {
+      this.customer = CustomerComponent.customers[this.customerId];
+    }
     // this.customer.birthDate = new Date(1979, 8, 17);
     // this.customer.birthDate = new Date(1980, 6, 31);
     this.initForm();
@@ -136,6 +139,24 @@ export class CustomerComponent implements OnInit, AfterViewInit {
     this.state = 'view';
   }
 
+  @Output()
+  private customerEmitter: EventEmitter<CustomerRegisteredEvent> = new EventEmitter<CustomerRegisteredEvent>();
+  add($event) {
+    if (this.customerForm.valid) {
+      // if (this.customerForm.status === "VALID") {
+      this.customer.firstName = this.customerForm.get('firstName').value;
+      this.customer.lastName = this.customerForm.get('lastName').value;
+      this.customer.phoneNumber =
+        this.customerForm.get('phoneNumber').value;
+      this.customer.email = this.customerForm.get('email').value;
+      const bd = this.customerForm.get('birthDate').value;
+      this.customer.birthDate = new Date(bd.year, bd.month - 1, bd.day);
+    }
+    this.customerEmitter.emit(new CustomerRegisteredEvent(this.customer, this));
+    this.customer = new Customer();
+    this.customerId = -1;
+  }
+
   bdChange(o, $event) {
     // console.log("BD Change");
     // console.log(o);
@@ -164,6 +185,7 @@ export class CustomerComponent implements OnInit, AfterViewInit {
     return this._state;
   }
 
+  @Input()
   set state(value: string) {
     this._state = value;
   }

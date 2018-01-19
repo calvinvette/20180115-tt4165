@@ -47,7 +47,7 @@
 
 <div class="container customerView" *ngIf="state == 'edit' || state == 'add'">
   <form [formGroup]="customerForm"> {{customerForm.valid}} {{customerForm.status}}
-    <div class="row">
+    <div class="row" *ngIf="state == 'edit'">
       <span class="col-md-6">Customer ID:</span>
       <span class="col-md-6">{{ customer.customerId }}</span>
     </div>
@@ -135,6 +135,9 @@
     </div>
     <div class="row" *ngIf="state == 'edit'">
       <button (click)="update()">Update Customer</button>
+    </div>
+    <div class="row" *ngIf="state == 'add'">
+      <button (click)="add($event)">Add Customer</button>
     </div>
   </form>
 </div>

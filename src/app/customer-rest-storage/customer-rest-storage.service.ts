@@ -75,14 +75,14 @@ export class CustomerRESTStorageService implements CustomerStorageService {
 
 
   findById(customerId: number): Observable<Customer> {
-    return this.http.get(CustomerRESTStorageService.baseUrl + "/" + customerId, CustomerRESTStorageService.jsonRequestOnlyOptions)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.get<Customer>(CustomerRESTStorageService.baseUrl + "/" + customerId, CustomerRESTStorageService.jsonRequestOnlyOptions);
+      // .map(this.extractData)
+      // .catch(this.handleError);
   }
 
   // Adapt to HttpClient - use get<Customer[]> instead of get/map
   findAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(CustomerRESTStorageService.baseUrl, CustomerRESTStorageService.jsonRequestOnlyOptions)
+    return this.http.get<Customer[]>(CustomerRESTStorageService.baseUrl, CustomerRESTStorageService.jsonRequestOnlyOptions);
       // .map(this.extractData)
       // .catch(this.handleError);
   }

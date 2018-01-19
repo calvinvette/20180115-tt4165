@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CustomerComponent } from './customer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+import {CustomerRESTStorageService} from '../customer-rest-storage/customer-rest-storage.service';
 
 describe('CustomerComponent', () => {
   let component: CustomerComponent;
@@ -12,11 +14,13 @@ describe('CustomerComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
+        HttpClientModule,
         NgbModule
       ],
-      declarations: [ CustomerComponent ]
+      declarations: [ CustomerComponent ],
+      providers: [CustomerRESTStorageService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,4 +32,16 @@ describe('CustomerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CustomerRestStorageService } from './customer-rest-storage.service';
+import { CustomerRESTStorageService } from './customer-rest-storage.service';
 
-describe('CustomerRestStorageService', () => {
+describe('CustomerRESTStorageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CustomerRestStorageService]
+      providers: [CustomerRESTStorageService]
     });
   });
 
-  it('should be created', inject([CustomerRestStorageService], (service: CustomerRestStorageService) => {
+  it('should be created', inject([CustomerRESTStorageService], (service: CustomerRESTStorageService) => {
     expect(service).toBeTruthy();
   }));
 });

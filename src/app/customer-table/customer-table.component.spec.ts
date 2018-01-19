@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerTableComponent } from './customer-table.component';
+import {CustomerRESTStorageService} from '../customer-rest-storage/customer-rest-storage.service';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('CustomerTableComponent', () => {
   let component: CustomerTableComponent;
@@ -8,7 +10,9 @@ describe('CustomerTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomerTableComponent ]
+      imports: [HttpClientModule],
+      declarations: [ CustomerTableComponent ],
+      providers: [CustomerRESTStorageService]
     })
     .compileComponents();
   }));
